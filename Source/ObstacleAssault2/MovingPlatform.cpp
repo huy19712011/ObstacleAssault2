@@ -23,6 +23,11 @@ void AMovingPlatform::BeginPlay()
 	// MemberFloat = 10.0f;
 	UE_LOG(LogTemp, Warning, TEXT("MemberFloat = %f"), MemberFloat);
 	UE_LOG(LogTemp, Warning, TEXT("MemberInt = %d"), MemberInt);
+
+	//FVector TestVector = FVector(730.0f, 230.0f, 420.0f);
+	//SetActorLocation(TestVector);
+
+	SetActorLocation(MyVector);
 	
 }
 
