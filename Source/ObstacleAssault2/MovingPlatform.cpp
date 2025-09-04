@@ -27,7 +27,6 @@ void AMovingPlatform::BeginPlay()
 	//FVector TestVector = FVector(730.0f, 230.0f, 420.0f);
 	//SetActorLocation(TestVector);
 
-	SetActorLocation(MyVector);
 	
 }
 
@@ -35,6 +34,15 @@ void AMovingPlatform::BeginPlay()
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	UE_LOG(LogTemp, Display, TEXT("Tick is called"));
+
+	MyVector.X = MyVector.X + 1;
+
+	SetActorLocation(MyVector);
+
+
+
 
 }
 
