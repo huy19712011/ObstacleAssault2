@@ -37,10 +37,13 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 	UE_LOG(LogTemp, Display, TEXT("Tick is called"));
 
-	MyVector.X = MyVector.X + 1;
+	// MyVector.X = MyVector.X + 1;
 
-	SetActorLocation(MyVector);
+	// SetActorLocation(MyVector);
 
+	FVector currentVector = GetActorLocation();
+	currentVector.Y = currentVector.Y + 1;
+	SetActorLocation(currentVector);
 
 
 
