@@ -32,4 +32,7 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	FVector MyVector = FVector(11.2f, 3.4f, 6.5f);
+
+	UPROPERTY(EditAnywhere)
+	FVector PlatformVelocity = FVector(0.0f, 0.0f, 0.0f);
 };
