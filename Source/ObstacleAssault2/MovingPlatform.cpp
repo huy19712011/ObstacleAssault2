@@ -41,13 +41,23 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 	// SetActorLocation(MyVector);
 
+	MovePlatform(DeltaTime);
+
+	RotatePlatform(DeltaTime);
+}
+
+// ReSharper disable once CppMemberFunctionMayBeConst
+void AMovingPlatform::MovePlatform(float DeltaTime)
+{
 	FVector CurrentVector = GetActorLocation();
 	// CurrentVector.Y = CurrentVector.Y + (100 * DeltaTime);
 	CurrentVector = CurrentVector + (PlatformVelocity * DeltaTime);
-	SetActorLocation(CurrentVector);
+	SetActorLocation(CurrentVector);	
+}
 
-
-
-
+// ReSharper disable once CppMemberFunctionMayBeConst
+void AMovingPlatform::RotatePlatform(float DeltaTime)
+{
+	//Rotate the platform
 }
 
