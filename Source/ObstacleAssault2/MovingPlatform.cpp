@@ -27,6 +27,8 @@ void AMovingPlatform::BeginPlay()
 	//FVector TestVector = FVector(730.0f, 230.0f, 420.0f);
 	//SetActorLocation(TestVector);
 
+	StartLocation = GetActorLocation();
+
 	
 }
 
@@ -49,10 +51,12 @@ void AMovingPlatform::Tick(float DeltaTime)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void AMovingPlatform::MovePlatform(float DeltaTime)
 {
-	FVector CurrentVector = GetActorLocation();
+	FVector CurrentLocation = GetActorLocation();
 	// CurrentVector.Y = CurrentVector.Y + (100 * DeltaTime);
-	CurrentVector = CurrentVector + (PlatformVelocity * DeltaTime);
-	SetActorLocation(CurrentVector);	
+	CurrentLocation = CurrentLocation + (PlatformVelocity * DeltaTime);
+	SetActorLocation(CurrentLocation);
+
+	DistanceMoved = FVector::Dist(StartLocation, CurrentLocation);
 }
 
 // ReSharper disable once CppMemberFunctionMayBeConst
