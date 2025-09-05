@@ -37,7 +37,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Display, TEXT("Tick is called"));
+	// UE_LOG(LogTemp, Display, TEXT("Tick is called"));
 
 	// MyVector.X = MyVector.X + 1;
 
@@ -57,6 +57,12 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 	SetActorLocation(CurrentLocation);
 
 	DistanceMoved = FVector::Dist(StartLocation, CurrentLocation);
+
+	if (DistanceMoved >= MoveDistance)
+	{
+		PlatformVelocity = - PlatformVelocity;
+		StartLocation = CurrentLocation;
+	}
 }
 
 // ReSharper disable once CppMemberFunctionMayBeConst
