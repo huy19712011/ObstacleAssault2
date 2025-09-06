@@ -48,6 +48,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	float MoveDistance {100.0f};
 
+	UPROPERTY(EditAnywhere)
+	FRotator RotationVelocity;
+	
 	FVector StartLocation;
 
 };

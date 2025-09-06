@@ -80,6 +80,8 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
 	//Rotate the platform
+	FRotator RotationToAdd = RotationVelocity * DeltaTime;
+	AddActorLocalRotation(RotationToAdd);
 }
 
 // ReSharper disable once CppFunctionDoesntReturnValue
