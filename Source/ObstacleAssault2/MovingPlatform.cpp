@@ -51,12 +51,8 @@ void AMovingPlatform::Tick(float DeltaTime)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void AMovingPlatform::MovePlatform(float DeltaTime)
 {
-	FVector CurrentLocation = GetActorLocation();
-	// CurrentVector.Y = CurrentVector.Y + (100 * DeltaTime);
-	CurrentLocation = CurrentLocation + (PlatformVelocity * DeltaTime);
-	SetActorLocation(CurrentLocation);
-
-	DistanceMoved = FVector::Dist(StartLocation, CurrentLocation);
+	// DistanceMoved = FVector::Dist(StartLocation, CurrentLocation);
+	DistanceMoved = GetDistanceMoved();
 
 	if (DistanceMoved >= MoveDistance)
 	{
@@ -72,11 +68,24 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 
 		PlatformVelocity = - PlatformVelocity;
 	}
+	else
+	{
+		FVector CurrentLocation = GetActorLocation();
+		CurrentLocation = CurrentLocation + (PlatformVelocity * DeltaTime);
+		SetActorLocation(CurrentLocation);		
+	}
 }
 
 // ReSharper disable once CppMemberFunctionMayBeConst
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
 	//Rotate the platform
+}
+
+// ReSharper disable once CppFunctionDoesntReturnValue
+// ReSharper disable once CppMemberFunctionMayBeConst
+float AMovingPlatform::GetDistanceMoved()
+{
+	return FVector::Dist(StartLocation, GetActorLocation());
 }
 

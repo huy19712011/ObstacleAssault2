@@ -27,6 +27,8 @@ public:
 
 	void RotatePlatform(float DeltaTime);
 
+	float GetDistanceMoved();
+
 // private:
 	UPROPERTY(EditAnywhere)
 	float MemberFloat {10.0f};
