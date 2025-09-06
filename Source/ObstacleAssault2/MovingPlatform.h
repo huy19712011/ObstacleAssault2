@@ -44,7 +44,7 @@ public:
 	float DistanceMoved = 0.0f;
 
 	UPROPERTY(EditAnywhere)
-	float MoveDistance {10000.0f};
+	float MoveDistance {100.0f};
 
 	FVector StartLocation;
 

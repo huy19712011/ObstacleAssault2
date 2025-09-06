@@ -60,8 +60,17 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 
 	if (DistanceMoved >= MoveDistance)
 	{
+
+		float Overshoot = DistanceMoved - MoveDistance;
+		FString PlatformName = GetName();
+		UE_LOG(LogTemp, Warning, TEXT("%s overshoot by %f"), *PlatformName, Overshoot);
+
+		FVector MoveDirection = PlatformVelocity.GetSafeNormal(); // normal vector
+		FVector NewStartLocation = StartLocation + MoveDirection * MoveDistance;
+		SetActorLocation(NewStartLocation);
+		StartLocation = NewStartLocation;
+
 		PlatformVelocity = - PlatformVelocity;
-		StartLocation = CurrentLocation;
 	}
 }
 
